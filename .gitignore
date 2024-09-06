@@ -1,0 +1,5 @@
+# Gradle cache
+.gradle
+
+# Idea
+.idea
