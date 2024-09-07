@@ -8,9 +8,9 @@ public class Main {
         ).build();
         
         if (requestClient.isSuccess()) {
-            System.out.println("Network request successful!");
+            System.out.println(requestClient.getResponse().getResponse());
         } else {
-            System.out.println("Network request unsuccessful!");
+            System.out.println(requestClient.getError().getError());
         }
     }
 }

@@ -1,7 +1,6 @@
 package netware.client.requestExecutors
 
 import netware.client.dataHolders.ClientServerResponse
-import netware.client.requestDefaults.requestClientHeader
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.Properties

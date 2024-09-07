@@ -1,8 +1,13 @@
 [versions]
 kotlinJvmVersion = "2.0.20"
+junitJupiterVersion = "5.10.0"
+
+[libraries]
+junitJupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiterVersion"}
 
 
 [plugins]
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinJvmVersion" }
 java = { id = "java" }
 mavenPublish = { id = "maven-publish" }
+

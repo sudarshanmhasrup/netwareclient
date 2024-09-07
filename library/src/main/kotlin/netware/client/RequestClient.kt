@@ -1,5 +1,7 @@
 package netware.client
 
+import netware.client.dataHolders.ClientRequestError
+import netware.client.dataHolders.ClientServerResponse
 import netware.client.requestExecutors.RequestClientExecutor
 
 /*
@@ -18,6 +20,9 @@ class RequestClient constructor(
 
     var isSuccess = false
 
+    private var response: ClientServerResponse = ClientServerResponse()
+    private var error: ClientRequestError = ClientRequestError()
+
     constructor(url: String, method: String): this(url) {
         networkRequestMethod = method
     }
@@ -31,6 +36,10 @@ class RequestClient constructor(
         networkRequestHeaders += headers
     }
 
+    // Getter function for server response and error
+    fun getResponse() = response
+    fun getError() = error
+
     // Function to execute the network request
     fun build(): RequestClient {
 
@@ -43,10 +52,11 @@ class RequestClient constructor(
 
         if (requestClientExecutor.isSuccess) {
             isSuccess = true
+            response = requestClientExecutor.getResponse()
         } else {
             isSuccess = false
+            error = requestClientExecutor.getError()
         }
-
 
         return this
     }
