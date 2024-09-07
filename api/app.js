@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 // API middleware
-const apiMiddleware = require("./middleware/api-middleware");
+const apiMiddleware = require("./middlewares/api-middleware");
 app.use(apiMiddleware);
 
 // Message to be sent when API connection is successful

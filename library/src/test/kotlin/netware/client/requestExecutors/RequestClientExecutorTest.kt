@@ -1,19 +1,41 @@
 package netware.client.requestExecutors
 
-import netware.client.dataHolders.ClientRequestResponse
 import netware.client.dataHolders.ClientServerResponse
-import org.junit.jupiter.api.Assertions
+import netware.client.requestDefaults.requestClientHeader
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.util.Properties
 
 class RequestClientExecutorTest {
+
+
+    private val properties = Properties()
+    private val requestHeaders = mapOf("x-api-key" to "9CF4TaIX629gKf5Er767bR149OmVy71V5Pr5CI0v")
+
+    @Test
+    fun validateRequestTest() {
+
+        val requestClientExecutor = RequestClientExecutor(
+            networkRequestURL = "http://localhost:3000/",
+            networkRequestMethod = "GET"
+        ).validateRequest()
+
+        val expectedResponse = ClientServerResponse(
+            statusCode = 200,
+            status = "OK",
+            response = "{\"message\":\"API connection established successful!\",\"status\":200}"
+        )
+
+        assertEquals(expectedResponse, requestClientExecutor.getResponse())
+    }
 
     @Test
     fun requestExecutorTest() {
 
         val requestClientExecutor = RequestClientExecutor(
             networkRequestURL = "http://localhost:3000/",
-            networkRequestMethod = "GET"
+            networkRequestMethod = "GET",
+            networkRequestHeaders = requestHeaders
         ).requestExecutor(
             isHTTPs = false
         )
@@ -21,9 +43,10 @@ class RequestClientExecutorTest {
         val expectedResponse = ClientServerResponse(
             statusCode = 200,
             status = "OK",
-            response = "{\"message\":\"API connection successful!\",\"status\":200}"
+            response = "{\"message\":\"API connection established successful!\",\"status\":200}"
         )
 
         assertEquals(expectedResponse, requestClientExecutor.getResponse())
     }
+
 }

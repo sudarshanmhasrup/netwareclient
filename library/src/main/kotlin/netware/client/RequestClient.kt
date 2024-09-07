@@ -1,5 +1,7 @@
 package netware.client
 
+import netware.client.requestExecutors.RequestClientExecutor
+
 /*
     This class is used to send network requests, which are plain HTTP requests.
     It supports the following method requests: `GET`, `Post`, `Patch`, `Delete`.
@@ -29,11 +31,23 @@ class RequestClient constructor(
         networkRequestHeaders += headers
     }
 
-
     // Function to execute the network request
     fun build(): RequestClient {
 
-        println(networkRequestHeaders)
+        // Initialize and execute the network request
+        val requestClientExecutor = RequestClientExecutor(
+            networkRequestURL = networkRequestUrl,
+            networkRequestMethod = networkRequestMethod,
+            networkRequestHeaders = networkRequestHeaders
+        ).validateRequest()
+
+        if (requestClientExecutor.isSuccess) {
+            isSuccess = true
+        } else {
+            isSuccess = false
+        }
+
+
         return this
     }
 }
