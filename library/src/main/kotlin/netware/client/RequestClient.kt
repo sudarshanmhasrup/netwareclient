@@ -52,13 +52,15 @@ class RequestClient constructor(
 
         if (requestClientExecutor.isSuccess) {
             isSuccess = true
-            clientCallback?.onSuccess(response = response)
+            clientCallback?.onSuccess(
+                response = requestClientExecutor.getResponse()
+            )
         } else {
             isSuccess = false
-            clientCallback?.onError(error = error)
+            clientCallback?.onError(
+                error = requestClientExecutor.getError()
+            )
         }
-
-        println("A Build A")
 
         return this
     }

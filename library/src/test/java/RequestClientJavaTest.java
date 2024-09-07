@@ -20,10 +20,7 @@ public class RequestClientJavaTest {
         ).build();
 
         if (requestClient.isSuccess()) {
-            assertEquals("""
-                    Status: OK, Status Code: 200.\s
-                    Response: {"message":"API connection established successfully!","status":200}
-                    """.trim(), requestClient.getResponse().getLog());
+            assertEquals("Status: OK, Status Code: 200. \nResponse: {\"message\":\"API connection established successfully!\",\"status\":200}", requestClient.getResponse().getLog());
         } else {
             fail(requestClient.getError().getLog());
         }

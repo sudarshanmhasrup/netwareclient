@@ -1,6 +1,10 @@
 import netware.client.RequestClient
+import netware.client.dataHolders.ClientRequestError
+import netware.client.dataHolders.ClientServerResponse
+import netware.client.requestCallbacks.ClientCallback
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.fail
 
 class RequestClientKotlinTest {
 
@@ -21,5 +25,29 @@ class RequestClientKotlinTest {
                 Response: {"message":"API connection established successfully!","status":200}
             """.trimIndent(), requestClient.getResponse().getLog())
         }
+    }
+
+    @Test
+    fun networkRequestWithCallback() {
+
+        val requestClient = RequestClient(
+            url = "http://localhost:3000",
+            method = "GET",
+            headers = requestHeaders
+        ).build(object: ClientCallback {
+            override fun onSuccess(response: ClientServerResponse) {
+                assertEquals("""
+                    Status: OK, Status Code: 200. 
+                    Response: {"message":"API connection established successfully!","status":200}
+                """.trimIndent(), response.getLog())
+            }
+
+            override fun onError(error: ClientRequestError) {
+                fail {
+                    error.getLog()
+                }
+            }
+
+        })
     }
 }

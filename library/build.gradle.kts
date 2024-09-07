@@ -16,6 +16,22 @@ dependencies {
     testImplementation(libs.junitJupiter)
 }
 
+java {
+
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+
+        repositories {
+            mavenCentral()
+            gradlePluginPortal()
+        }
+    }
+
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 tasks.test {
     useJUnitPlatform()
 }
