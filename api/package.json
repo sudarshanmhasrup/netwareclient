@@ -1,0 +1,20 @@
+{
+  "name": "netware-client-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "Netware Client",
+    "Rest APIs",
+    "Node JS",
+    "Express JS"
+  ],
+  "author": "Netware Client",
+  "license": "ISC",
+  "description": "Sample API to test Netware Client library.",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
