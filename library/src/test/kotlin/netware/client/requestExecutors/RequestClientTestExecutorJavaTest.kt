@@ -3,27 +3,25 @@ package netware.client.requestExecutors
 import netware.client.dataHolders.ClientServerResponse
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.util.Properties
 
-class RequestClientExecutorTest {
+class RequestClientTestExecutorJavaTest {
 
-
-    private val properties = Properties()
     private val requestHeaders = mapOf("x-api-key" to "9CF4TaIX629gKf5Er767bR149OmVy71V5Pr5CI0v")
+
+    private val expectedResponse = ClientServerResponse(
+        statusCode = 200,
+        status = "OK",
+        response = """{"message":"API connection established successfully!","status":200}"""
+    )
 
     @Test
     fun validateRequestTest() {
 
         val requestClientExecutor = RequestClientExecutor(
             networkRequestURL = "http://localhost:3000/",
-            networkRequestMethod = "GET"
+            networkRequestMethod = "GET",
+            networkRequestHeaders = requestHeaders
         ).validateRequest()
-
-        val expectedResponse = ClientServerResponse(
-            statusCode = 200,
-            status = "OK",
-            response = "{\"message\":\"API connection established successful!\",\"status\":200}"
-        )
 
         assertEquals(expectedResponse, requestClientExecutor.getResponse())
     }
@@ -37,12 +35,6 @@ class RequestClientExecutorTest {
             networkRequestHeaders = requestHeaders
         ).requestExecutor(
             isHTTPs = false
-        )
-
-        val expectedResponse = ClientServerResponse(
-            statusCode = 200,
-            status = "OK",
-            response = "{\"message\":\"API connection established successful!\",\"status\":200}"
         )
 
         assertEquals(expectedResponse, requestClientExecutor.getResponse())

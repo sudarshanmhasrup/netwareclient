@@ -2,6 +2,7 @@ package netware.client
 
 import netware.client.dataHolders.ClientRequestError
 import netware.client.dataHolders.ClientServerResponse
+import netware.client.requestCallbacks.ClientCallback
 import netware.client.requestExecutors.RequestClientExecutor
 
 /*
@@ -40,7 +41,28 @@ class RequestClient constructor(
     fun getResponse() = response
     fun getError() = error
 
-    // Function to execute the network request
+    fun build(clientCallback: ClientCallback? = null): RequestClient {
+
+        // Initialize and execute the network request
+        val requestClientExecutor = RequestClientExecutor(
+            networkRequestURL = networkRequestUrl,
+            networkRequestMethod = networkRequestMethod,
+            networkRequestHeaders = networkRequestHeaders
+        ).validateRequest()
+
+        if (requestClientExecutor.isSuccess) {
+            isSuccess = true
+            clientCallback?.onSuccess(response = response)
+        } else {
+            isSuccess = false
+            clientCallback?.onError(error = error)
+        }
+
+        println("A Build A")
+
+        return this
+    }
+
     fun build(): RequestClient {
 
         // Initialize and execute the network request
@@ -57,7 +79,6 @@ class RequestClient constructor(
             isSuccess = false
             error = requestClientExecutor.getError()
         }
-
         return this
     }
 }
