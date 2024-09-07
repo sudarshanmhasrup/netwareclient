@@ -1,7 +1,7 @@
 [versions]
 kotlinJvmVersion = "2.0.20"
 
-
 [plugins]
-kotlinJvm = {id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinJvmVersion"}
-java = {id = "java"}
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinJvmVersion" }
+java = { id = "java" }
+mavenPublish = { id = "maven-publish" }
