@@ -1,5 +1,6 @@
 package netware.client.requestExecutors
 
+import netware.client.dataHolders.ClientRequestError
 import netware.client.dataHolders.ClientRequestResponse
 import netware.client.dataHolders.ClientServerResponse
 import java.net.HttpURLConnection
@@ -14,7 +15,6 @@ internal class RequestClientExecutor(
     private val networkRequestURL: String,
     private val networkRequestMethod: String
 ) {
-
 
     // Function to send an HTTP request
     fun requestExecutor(isHTTPs: Boolean): ClientRequestResponse {
@@ -54,14 +54,18 @@ internal class RequestClientExecutor(
                     response = serverResponse
                 )
             )
-
         } catch (exception: Exception) {
-            println(exception)
+            return ClientRequestResponse(
+                isSuccess = false,
+                error = ClientRequestError(
+                    statusCode = 200,
+                    status = "Failed",
+                    error = exception.toString()
+                )
+            )
         } finally {
             networkRequestConnection.disconnect()
         }
-
-
     }
 
 }

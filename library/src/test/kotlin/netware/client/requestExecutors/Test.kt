@@ -1,5 +1,6 @@
 package netware.client.requestExecutors
 
+import netware.client.dataHolders.ClientRequestResponse
 import org.junit.Test
 
 class Test {
@@ -14,6 +15,7 @@ class Test {
             isHTTPs = false
         )
 
+        println(requestClientExecutor)
 
     }
 }
