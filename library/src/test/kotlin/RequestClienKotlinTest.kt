@@ -2,7 +2,7 @@ import netware.client.RequestClient
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class RequestClienKotlinTest {
+class RequestClientKotlinTest {
 
     private val requestHeaders = mapOf("x-api-key" to "9CF4TaIX629gKf5Er767bR149OmVy71V5Pr5CI0v")
 
