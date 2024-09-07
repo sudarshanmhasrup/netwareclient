@@ -1,12 +1,15 @@
 package netware.client.requestExecutors
 
 import netware.client.dataHolders.ClientRequestResponse
-import org.junit.Test
+import netware.client.dataHolders.ClientServerResponse
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
-class Test {
+class RequestClientExecutorTest {
 
     @Test
-    fun requestExecutor() {
+    fun requestExecutorTest() {
 
         val requestClientExecutor = RequestClientExecutor(
             networkRequestURL = "http://localhost:3000/",
@@ -15,7 +18,12 @@ class Test {
             isHTTPs = false
         )
 
-        println(requestClientExecutor)
+        val expectedResponse = ClientServerResponse(
+            statusCode = 200,
+            status = "OK",
+            response = "{\"message\":\"API connection successful!\",\"status\":200}"
+        )
 
+        assertEquals(expectedResponse, requestClientExecutor.getResponse())
     }
 }

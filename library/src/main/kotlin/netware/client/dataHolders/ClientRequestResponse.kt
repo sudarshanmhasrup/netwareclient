@@ -11,16 +11,6 @@ class ClientRequestResponse(
     fun getError() = error
 
     override fun toString(): String {
-        return if (isSuccess) {
-            """
-            Status Code: ${response.getStatusCode()}. Status: ${response.getStatus()}.
-            Response: ${response.getResponse()}
-        """.trimIndent()
-        } else {
-            """
-            Error Code: ${error.getStatusCode()}. Error Status: ${error.getStatus()}.
-            Error: ${error.getError()}
-        """.trimIndent()
-        }
+        return "Hello"
     }
 }

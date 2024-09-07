@@ -10,11 +10,4 @@ data class ClientServerResponse(
     fun getStatusCode() = statusCode
     fun getStatus() = status
     fun getResponse() = response
-
-    override fun toString(): String {
-        return """
-            Status code: $statusCode. Status: $status
-            Response: $response
-        """.trimIndent()
-    }
 }

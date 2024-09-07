@@ -12,7 +12,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 // Publication
