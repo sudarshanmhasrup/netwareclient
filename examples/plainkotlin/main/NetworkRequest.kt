@@ -8,6 +8,8 @@ class NetworkRequest {
 
     fun sendNetworkRequest() {
 
+
+
         val requestClient = RequestClient(
             url = "https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=10",
             method = "GET"
