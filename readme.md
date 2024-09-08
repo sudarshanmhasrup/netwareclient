@@ -4,7 +4,7 @@ Netware Client is a straightforward networking library to simplify networking in
 
 ### Add to your project
 
-```gradle implementation("com.github.sudarshanmhasrup:netwareclient:0.0.1-alpha")
+```kotlin implementation("com.github.sudarshanmhasrup:netwareclient:0.0.1-alpha")
 ```
 
 ### Background story
