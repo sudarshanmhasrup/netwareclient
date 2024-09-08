@@ -10,7 +10,7 @@ Netware Client supports the following operations:
 
 ### Add to your project
 
-This library can be used in Java or Kotlin projects that uses Gradle as a build system. I’m also planning to add support for projects that use Maven. Follow these steps to add the library to your project.
+This library can be used in Java or Kotlin project that uses Gradle build system. I’m also planning to add support for project that uses Maven build system. Follow the following steps to add the library to your project.
 
 ***Step 1:*** Add the following line in your project's `build.gradle` or `build.gradle.kts` file depending upon which build type you have chosen for your project and click on sync.
 
