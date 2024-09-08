@@ -5,8 +5,8 @@ Netware Client is a straightforward networking library to simplify networking in
 Netware Client supports the following operations:
 - Send `GET`, `POST`, `PATCH`, and `DELETE` HTTP requests.
 - Send headers along with the network requests.
-- Accept server response in JSON format.
-Send request body in JSON format.
+- Accept server response in `JSON` format.
+- Send request body in `JSON` format.
 
 ### Add to your project
 
