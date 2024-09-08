@@ -58,7 +58,7 @@ dependencies {
 }
 ```
 
-Once it's done, then congratulations to yourself; now you're ready to use ***Netware Client*** for your project.
+Once it's done, then congratulate to yourself; now you're ready to use ***Netware Client*** for your project.
 
 ### Background story
 
