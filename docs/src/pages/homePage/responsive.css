@@ -1,0 +1,35 @@
+@media  screen and (max-width: 768px) {
+
+    .home-section-half-left {
+        width: 100%;
+        padding: 20px 10px;
+        margin-top: 40px;
+    }
+
+    .home-section-half-left-container {
+        padding: 40px 10px;
+    }
+
+    .home-section-headings h1 {
+        font-size: 32px;
+    }
+
+    .home-section-headings h2 {
+        font-size: 16px;
+        padding: 0px;
+        font-weight: 600;
+    }
+
+    .home-section-headings p {
+        font-size: 14px;
+        padding: 0px;
+    }
+    
+    .home-code-image-container-mobile {
+        display: block;
+    }
+    
+    .home-section-half-right {
+        display: none;
+    }
+}

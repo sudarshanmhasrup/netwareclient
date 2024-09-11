@@ -1,0 +1,42 @@
+.header-section {
+    background-color: var(--headerBackgroundColor);
+    padding: 20px 20px;
+    height: auto;
+    justify-content: space-between;
+    display: flex;
+}
+
+.header-section a {
+    text-decoration: none;
+    color: var(--headerTextColor);
+}
+
+.header-logo-and-title {
+    color: var(--headerTextColor);
+    font-weight: 800;
+    display: flex;
+}
+
+.header-logo-and-title img {
+    height: 24px;
+    margin-right: 10px;
+}
+
+.release-version {
+    padding: 2px 10px;
+    font-size: 12px;
+    background-color: #038153;
+    border-radius: 200px;
+    color: #ffffff;
+    text-align: center;
+    margin-left: 8px;
+    font-weight: 400;
+}
+
+@media  screen and (max-width: 768px) {
+    
+    .release-version {
+        font-size: 10px;
+    }
+}
+

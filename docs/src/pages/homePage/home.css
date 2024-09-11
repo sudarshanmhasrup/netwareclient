@@ -1,0 +1,113 @@
+.home-page {
+    display: flex;
+}
+
+.home-section-half-left {
+    width: 60%;
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-section-half-left-container {
+    height: auto;
+    margin-bottom: 80px;
+}
+
+.home-section-headings {
+    text-align: center;
+    height: auto;
+}
+
+.home-section-headings h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.home-section-headings h2 {
+    font-size: 24px;
+    font-weight: 400;
+    padding: 0px 40px;
+    margin-top: 16px;
+}
+
+.home-section-headings p{
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.home-code-image-container-mobile {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 40px;
+    height: auto;
+}
+
+.home-code-image-container-mobile {
+    display: none;
+}
+
+.home-code-image-container-mobile img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-section-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    height: auto;
+}
+
+.quick-start-button {
+    padding: 14px 20px;
+    border: 0 solid;
+    border-radius: 8px;
+    background-color: var(--buttonBackgroundColor);
+    color: var(--buttonTextColor);
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.quick-start-button a {
+    text-decoration: none;
+    color: var(--buttonTextColor);
+}
+
+.learn-button {
+    padding: 14px 20px;
+    border: 1px solid var(--learnButtonBorderColor);
+    border-radius: 8px;
+    background-color: var(--learnButtonBackgroundColor);
+    color: var(--learnButtonTextColor);
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+
+.learn-button a {
+    text-decoration: none;
+    color: var(--learnButtonTextColor);
+}
+
+.home-section-half-right {
+    width: 40%;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-left-right-container {
+    height: auto;
+}
+
+.home-section-half-right img {
+    height: 300px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+}

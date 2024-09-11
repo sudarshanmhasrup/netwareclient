@@ -23,6 +23,8 @@
     background-color: var(--headerBackgroundColor);
     padding: 20px 20px;
     height: auto;
+    justify-content: space-between;
+    display: flex;
 }
 
 .header-logo-and-title {
@@ -39,6 +41,21 @@
     text-align: center;
     margin-left: 8px;
     font-weight: 400;
+}
+
+.header-options {
+    display: flex;
+}
+
+.header-options li {
+    list-style: none;
+    margin-right: 20px;
+}
+
+.header-options li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
 }
 
 .home-section {
