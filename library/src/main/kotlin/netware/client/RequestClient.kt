@@ -1,5 +1,8 @@
 package netware.client
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import netware.client.dataHolders.ClientRequestError
 import netware.client.dataHolders.ClientServerResponse
 import netware.client.requestCallbacks.ClientCallback
@@ -11,7 +14,8 @@ import netware.client.requestExecutors.RequestClientExecutor
 
     It uses HttpUrlConnection and HttpsUrlConnection under the hood for making network requests.
  */
-class RequestClient constructor(
+@Suppress("unused")
+class RequestClient(
     url: String
 ) {
 

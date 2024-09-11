@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     api(libs.orgJson)
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
     testImplementation(libs.junitJupiter)
 }
 

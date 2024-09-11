@@ -6,7 +6,6 @@ import netware.client.dataHolders.ClientServerResponse
 import java.net.HttpURLConnection
 import java.net.URI
 import javax.net.ssl.HttpsURLConnection
-import javax.net.ssl.HttpsURLConnection.*
 
 /*
     This class contains all the logic to send and handle an HTTP network request. It supports all standard HTTP network requests.
@@ -45,7 +44,7 @@ internal class RequestClientExecutor(
     }
 
     // Function to send HTTP requests
-    internal fun requestExecutor(isHTTPs: Boolean): ClientRequestResponse {
+    private fun requestExecutor(isHTTPs: Boolean): ClientRequestResponse {
 
         val networkRequestUri = URI(networkRequestURL)
         val networkRequestUrl = networkRequestUri.toURL()
