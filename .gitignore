@@ -6,3 +6,6 @@
 
 # Local properties
 local.properties
+
+# Kotlin
+.kotlin
