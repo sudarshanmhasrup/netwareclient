@@ -14,6 +14,7 @@ data class ClientServerResponse(
     fun getStatusCode() = statusCode
     fun getStatus() = status
     fun getResponse() = response
+    fun getHeaders() = responseHeaders
 
     // Function to show log
     fun getLog(formatResponse: Boolean = false): String {
@@ -22,10 +23,13 @@ data class ClientServerResponse(
 
         if (formatResponse) {
             return """
+
 Status: $status, Status Code: $statusCode.
 Response: -----------------------------------------------
 $prettyResponse
----------------------------------------------------------""".trimIndent()
+---------------------------------------------------------
+""".trimIndent()
+
         } else {
             return """
                 Status: $status, Status Code: $statusCode.

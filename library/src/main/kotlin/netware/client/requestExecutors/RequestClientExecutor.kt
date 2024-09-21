@@ -80,13 +80,21 @@ internal class RequestClientExecutor(
                }
             }
 
+            val responseHeaders: MutableMap<String, String> = mutableMapOf()
+
+            // Read response map
+            networkRequestConnection.headerFields.forEach {
+                responseHeaders[it.key] = it.value.toString()
+            }
+
             if (serverResponseStatusCode == HttpURLConnection.HTTP_OK) {
                 return ClientRequestResponse(
                     isSuccess = true,
                     response = ClientServerResponse(
                         statusCode = serverResponseStatusCode,
                         status = serverResponseStatus,
-                        response = serverResponse
+                        response = serverResponse,
+                        responseHeaders = responseHeaders
                     )
                 )
             } else {
@@ -95,7 +103,8 @@ internal class RequestClientExecutor(
                     response = ClientServerResponse(
                         statusCode = serverResponseStatusCode,
                         status = serverResponseStatus,
-                        response = serverResponse
+                        response = serverResponse,
+                        responseHeaders = responseHeaders
                     )
                 )
             }
