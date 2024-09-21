@@ -37,8 +37,8 @@ class RequestClient(
     }
 
     // Getter function for server response and error
-    fun getResponse() = response
-    fun getError() = error
+    fun response() = response
+    fun error() = error
 
     fun build(clientCallback: ClientCallback? = null): RequestClient {
 

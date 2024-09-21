@@ -32,8 +32,8 @@ $prettyResponse
 
         } else {
             return """
-                Status: $status, Status Code: $statusCode.
-                Response: $response
+Status: $status, Status Code: $statusCode.
+Response: $response
             """
         }
     }

@@ -22,9 +22,9 @@ class LocalTest {
         if (requestClient.isSuccess) {
             assertEquals("""
                 {"message":"API connection established successfully!","status":200}
-            """.trimIndent(), requestClient.getResponse().getResponse())
+            """.trimIndent(), requestClient.response().getResponse())
         } else {
-            fail(requestClient.getError().toString())
+            fail(requestClient.error().toString())
         }
     }
 

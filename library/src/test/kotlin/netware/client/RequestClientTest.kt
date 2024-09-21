@@ -24,7 +24,7 @@ class RequestClientKotlinTest {
             assertEquals("""
                 Status: OK, Status Code: 200. 
                 Response: {"message":"API connection established successfully!","status":200}
-            """.trimIndent(), requestClient.getResponse().getLog())
+            """.trimIndent(), requestClient.response().getLog())
         }
     }
 

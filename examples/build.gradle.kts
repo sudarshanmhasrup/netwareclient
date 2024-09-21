@@ -15,7 +15,10 @@ dependencies {
 sourceSets {
     main {
         kotlin {
-            srcDirs("plainkotlin/main")
+            srcDirs("plainKotlin/main")
+        }
+        java {
+            srcDirs("plainJava/main")
         }
     }
 }
