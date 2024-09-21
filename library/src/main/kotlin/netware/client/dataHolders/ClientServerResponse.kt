@@ -2,8 +2,8 @@ package netware.client.dataHolders
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-@Suppress("unused")
 // Data class holding server response of an HTTP request
+@Suppress("unused")
 data class ClientServerResponse(
     private val statusCode: Int = 0,
     private val status: String = "No status found",
@@ -21,20 +21,20 @@ data class ClientServerResponse(
 
         val prettyResponse = formatResponse(response)
 
-        if (formatResponse) {
-            return """
-
+        return if (formatResponse) {
+            """
+    
 Status: $status, Status Code: $statusCode.
 Response: -----------------------------------------------
 $prettyResponse
 ---------------------------------------------------------
-""".trimIndent()
+    """.trimIndent()
 
         } else {
-            return """
+            """
 Status: $status, Status Code: $statusCode.
 Response: $response
-            """
+                """
         }
     }
 
