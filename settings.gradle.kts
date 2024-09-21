@@ -1,4 +1,4 @@
-rootProject.name = "Netware Client"
+rootProject.name = "NetwareClient"
 
 include("library")
 include("examples")

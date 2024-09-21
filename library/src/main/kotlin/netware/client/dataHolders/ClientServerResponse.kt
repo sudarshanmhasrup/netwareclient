@@ -23,7 +23,8 @@ data class ClientServerResponse(
 
         return if (formatResponse) {
             """
-    
+
+---------------------------------------------------------
 Status: $status, Status Code: $statusCode.
 Response: -----------------------------------------------
 $prettyResponse
@@ -46,8 +47,11 @@ Response: $response
             prettyPrintIndent = "  "
         }
 
-        val jsonElement = Json.parseToJsonElement(response)
-
-        return prettyJson.encodeToString(jsonElement)
+        try {
+            val jsonElement = Json.parseToJsonElement(response)
+            return prettyJson.encodeToString(jsonElement)
+        } catch (exception: Exception) {
+            return response
+        }
     }
 }

@@ -69,7 +69,7 @@ internal class RequestClientExecutor(
 
             // Read server response code and status
             val serverResponseStatusCode = networkRequestConnection.responseCode
-            val serverResponseStatus = networkRequestConnection.responseMessage
+            val serverResponseStatus = networkRequestConnection.responseMessage?: "No status found"
 
             val serverResponse = if (serverResponseStatusCode in 200..299) {
                 networkRequestConnection.inputStream.bufferedReader().use {
@@ -110,6 +110,8 @@ internal class RequestClientExecutor(
                 )
             }
         } catch (exception: Exception) {
+
+            exception.printStackTrace()
             return ClientRequestResponse(
                 isSuccess = false,
                 error = clientRequestExceptionDecoder(exception)
