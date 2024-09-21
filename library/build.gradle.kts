@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.java)
     alias(libs.plugins.mavenPublish)
+    kotlin("plugin.serialization") version "1.9.10"
 }
 
 group = "com.github.sudarshanmhasrup"
@@ -13,7 +14,7 @@ repositories {
 
 dependencies {
     api(libs.json)
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     testImplementation(libs.jupiter)
 }
 

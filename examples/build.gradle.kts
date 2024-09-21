@@ -21,5 +21,5 @@ sourceSets {
 }
 
 dependencies {
-
+    implementation(libs.netwareClient)
 }

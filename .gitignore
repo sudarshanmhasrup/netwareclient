@@ -10,6 +10,7 @@ local.properties
 
 # Kotlin
 .kotlin
+library/src/main/kotlin/Main.kt
 
 # Build
 build
