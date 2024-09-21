@@ -6,6 +6,6 @@ import netware.client.dataHolders.ClientServerResponse
 // Request Client callback
 interface ClientCallback {
 
-    fun onSuccess(response: ClientServerResponse) {}
-    fun onError(error: ClientRequestError) {}
+    fun onSuccess(response: ClientServerResponse)
+    fun onError(error: ClientRequestError)
 }

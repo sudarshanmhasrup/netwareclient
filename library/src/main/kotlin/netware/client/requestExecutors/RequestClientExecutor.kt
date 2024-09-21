@@ -3,6 +3,7 @@ package netware.client.requestExecutors
 import netware.client.dataHolders.ClientRequestError
 import netware.client.dataHolders.ClientRequestResponse
 import netware.client.dataHolders.ClientServerResponse
+import netware.client.execeptionHandlers.clientRequestExceptionDecoder
 import java.net.HttpURLConnection
 import java.net.URI
 import javax.net.ssl.HttpsURLConnection
@@ -44,7 +45,7 @@ internal class RequestClientExecutor(
     }
 
     // Function to send HTTP requests
-    private fun requestExecutor(isHTTPs: Boolean): ClientRequestResponse {
+    internal fun requestExecutor(isHTTPs: Boolean): ClientRequestResponse {
 
         val networkRequestUri = URI(networkRequestURL)
         val networkRequestUrl = networkRequestUri.toURL()
@@ -101,11 +102,7 @@ internal class RequestClientExecutor(
         } catch (exception: Exception) {
             return ClientRequestResponse(
                 isSuccess = false,
-                error = ClientRequestError(
-                    statusCode = 200,
-                    status = "Failed",
-                    error = exception.toString()
-                )
+                error = clientRequestExceptionDecoder(exception)
             )
         } finally {
             networkRequestConnection.disconnect()

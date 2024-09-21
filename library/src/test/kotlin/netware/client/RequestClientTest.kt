@@ -1,4 +1,5 @@
-import netware.client.RequestClient
+package netware.client
+
 import netware.client.dataHolders.ClientRequestError
 import netware.client.dataHolders.ClientServerResponse
 import netware.client.requestCallbacks.ClientCallback

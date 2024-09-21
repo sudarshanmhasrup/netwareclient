@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.kotlinJvm)
+    alias(libs.plugins.kotlin)
     alias(libs.plugins.java)
     alias(libs.plugins.mavenPublish)
 }
@@ -12,13 +12,12 @@ repositories {
 }
 
 dependencies {
-    api(libs.orgJson)
+    api(libs.json)
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
-    testImplementation(libs.junitJupiter)
+    testImplementation(libs.jupiter)
 }
 
 java {
-
     toolchain {
         languageVersion = JavaLanguageVersion.of(11)
 

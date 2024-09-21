@@ -5,14 +5,12 @@ import netware.client.dataHolders.ClientRequestError
 import netware.client.dataHolders.ClientServerResponse
 import netware.client.requestCallbacks.ClientCallback
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 
 class RequestClientHeadersTest {
 
     @Test
     fun requestClientHeadersExtender() {
-
 
         val requestClientHeaders = RequestClientHeaders()
         requestClientHeaders.add("Accept", "application/json")

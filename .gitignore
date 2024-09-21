@@ -3,9 +3,15 @@
 
 # Idea
 .idea
+examples/.idea
 
 # Local properties
 local.properties
 
 # Kotlin
 .kotlin
+
+# Build
+build
+library/build
+examples/build

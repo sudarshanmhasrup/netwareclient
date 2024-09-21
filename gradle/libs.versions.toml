@@ -1,16 +1,16 @@
 [versions]
-kotlinJvmVersion = "2.0.20"
-junitJupiterVersion = "5.10.0"
-orgJsonVersion = "20240303"
+kotlinJvm = "2.0.20"
+junitJupiter = "5.10.0"
+orgJson = "20240303"
 netwareClientVersion = "0.0.1-alpha"
 
 [libraries]
-junitJupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiterVersion"}
-orgJson = { group = "org.json", name = "json", version.ref = "orgJsonVersion"}
+jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter"}
+json = { group = "org.json", name = "json", version.ref = "orgJson"}
 netwareClient = { group = "com.github.sudarshanmhasrup", name = "netwareclient", version.ref = "netwareClientVersion"}
 
 [plugins]
-kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinJvmVersion" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinJvm" }
 java = { id = "java" }
 mavenPublish = { id = "maven-publish" }
 

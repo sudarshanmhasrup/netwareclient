@@ -1,17 +1,12 @@
 package netware.client
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import netware.client.dataHolders.ClientRequestError
 import netware.client.dataHolders.ClientServerResponse
 import netware.client.requestCallbacks.ClientCallback
 import netware.client.requestExecutors.RequestClientExecutor
 
 /*
-    This class is used to send network requests, which are plain HTTP requests.
-    It supports the following method requests: `GET`, `Post`, `Patch`, `Delete`.
-
+    This class is used to send network requests, which are plain HTTP requests.It supports following method: "GET", "POST", "PATCH", "UPDATE" and "DELETE".
     It uses HttpUrlConnection and HttpsUrlConnection under the hood for making network requests.
  */
 @Suppress("unused")
@@ -47,22 +42,33 @@ class RequestClient(
 
     fun build(clientCallback: ClientCallback? = null): RequestClient {
 
-        // Initialize and execute the network request
-        val requestClientExecutor = RequestClientExecutor(
-            networkRequestURL = networkRequestUrl,
-            networkRequestMethod = networkRequestMethod,
-            networkRequestHeaders = networkRequestHeaders
-        ).validateRequest()
+        if (networkRequestMethod in listOf("GET", "POST", "PATCH", "DELETE", "UPDATE")) {
+            // Initialize and execute the network request
+            val requestClientExecutor = RequestClientExecutor(
+                networkRequestURL = networkRequestUrl,
+                networkRequestMethod = networkRequestMethod,
+                networkRequestHeaders = networkRequestHeaders
+            ).validateRequest()
 
-        if (requestClientExecutor.isSuccess) {
-            isSuccess = true
-            clientCallback?.onSuccess(
-                response = requestClientExecutor.getResponse()
-            )
+            if (requestClientExecutor.isSuccess) {
+                isSuccess = true
+                clientCallback?.onSuccess(
+                    response = requestClientExecutor.getResponse()
+                )
+            } else {
+                isSuccess = false
+                clientCallback?.onError(
+                    error = requestClientExecutor.getError()
+                )
+            }
         } else {
-            isSuccess = false
+
             clientCallback?.onError(
-                error = requestClientExecutor.getError()
+                error = ClientRequestError(
+                    statusCode = 1000,
+                    status = "Failed",
+                    error = "The method \"$networkRequestMethod\" is not a valid HTTP request method."
+                )
             )
         }
 
@@ -71,20 +77,33 @@ class RequestClient(
 
     fun build(): RequestClient {
 
-        // Initialize and execute the network request
-        val requestClientExecutor = RequestClientExecutor(
-            networkRequestURL = networkRequestUrl,
-            networkRequestMethod = networkRequestMethod,
-            networkRequestHeaders = networkRequestHeaders
-        ).validateRequest()
+        if (networkRequestMethod in listOf("GET", "POST", "PATCH", "DELETE", "UPDATE")) {
 
-        if (requestClientExecutor.isSuccess) {
-            isSuccess = true
-            response = requestClientExecutor.getResponse()
+            // Initialize and execute the network request
+            val requestClientExecutor = RequestClientExecutor(
+                networkRequestURL = networkRequestUrl,
+                networkRequestMethod = networkRequestMethod,
+                networkRequestHeaders = networkRequestHeaders
+            ).validateRequest()
+
+            if (requestClientExecutor.isSuccess) {
+                isSuccess = true
+                response = requestClientExecutor.getResponse()
+            } else {
+                isSuccess = false
+                error = requestClientExecutor.getError()
+            }
         } else {
+
             isSuccess = false
-            error = requestClientExecutor.getError()
+            error = ClientRequestError(
+                statusCode = 1000,
+                status = "Failed",
+                error = "The method \"$networkRequestMethod\" is not a valid HTTP request method."
+            )
         }
+
         return this
     }
 }
+
