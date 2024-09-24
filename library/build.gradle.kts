@@ -13,8 +13,14 @@ repositories {
 
 dependencies {
     api(libs.json)
-    implementation(libs.serialization)
+    api(libs.serialization)
     testImplementation(libs.jupiter)
+}
+
+sourceSets {
+    main {
+        kotlin.srcDirs("src/main/")
+    }
 }
 
 java {
@@ -26,7 +32,6 @@ java {
             gradlePluginPortal()
         }
     }
-
 
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
